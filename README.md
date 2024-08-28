@@ -2,7 +2,7 @@
 
 # Introduction
 
-Provides a simple way to read FNIRSI's CFN files (`*.cfn`) produced by the FNIRSI UsbMeter tool ([here](https://www.fnirsi.com/pages/download-firmware)). With this library you can also convert `*.cfn` files to CSV files easily.
+Provides a simple way to read FNIRSI's CFN files (`*.cfn`) produced by the FNIRSI UsbMeter tool ([here](https://www.fnirsi.com/pages/download-firmware)). With this library you can also convert `*.cfn` files to CSV files easily. Available as [NuGet package](https://www.nuget.org/packages/CFNReader).
 
 # QuickStart
 

@@ -13,7 +13,7 @@
 		<Copyright>(C) 2024 Rob Janssen</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>fnirsi;cfn;usb;tester;data;csv</PackageTags>
+		<PackageTags>fnirsi;cfn;usb-tester;data;csv</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/RobThree/CFNReader.git</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/RobThree/CFNReader</PackageProjectUrl>
