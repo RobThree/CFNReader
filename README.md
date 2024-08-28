@@ -1,4 +1,4 @@
-# ![Logo](icon.png) CFNReader
+# ![Logo](https://raw.githubusercontent.com/RobThree/CFNReader/master/icon.png) CFNReader
 
 # Introduction
 
