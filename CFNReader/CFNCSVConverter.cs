@@ -17,6 +17,7 @@ public class CFNCSVConverter(
     Encoding? encoding = null,
     string timeFormat = "G",
     string valueFormat = "N4",
+    bool includeHeader = true,
     bool includeTime = true,
     bool includeUnit = false,
     int limitDataPoints = int.MaxValue
@@ -29,6 +30,7 @@ public class CFNCSVConverter(
     private readonly Encoding _encoding = encoding ?? Encoding.UTF8;
     private readonly string _timeformat = timeFormat;
     private readonly string _valueformat = valueFormat;
+    private readonly bool _includeheader = includeHeader;
     private readonly bool _includetime = includeTime;
     private readonly bool _includeunit = includeUnit;
     private readonly int _maxdatapoints = limitDataPoints;
@@ -41,11 +43,28 @@ public class CFNCSVConverter(
 
         var exportchannels = (_channels ?? fileinfo.Channels.Keys).Where(fileinfo.Channels.ContainsKey).ToArray();
 
+        using var sw = new StreamWriter(csvStream, _encoding, -1, true);
+
+        if (_includeheader)
+        {
+            await sw.WriteLineAsync(string.Join(_separator, GetHeaderNames(exportchannels)));
+        }
+
         await foreach (var dp in cfnreader.ReadDatapointsAsync(fileinfo, cancellationToken).Where(_predicate).Take(_maxdatapoints))
         {
-            var line = string.Join(_separator, GetValues(exportchannels, dp));
-            var buffer = _encoding.GetBytes(line + Environment.NewLine);
-            await csvStream.WriteAsync(buffer, 0, buffer.Length, cancellationToken);
+            await sw.WriteLineAsync(string.Join(_separator, GetValues(exportchannels, dp)));
+        }
+    }
+
+    private IEnumerable<string> GetHeaderNames(Channel[] channels)
+    {
+        if (_includetime)
+        {
+            yield return nameof(Datapoint.Time);
+        }
+        foreach (var channel in channels)
+        {
+            yield return channel.ToString();
         }
     }
 

@@ -25,7 +25,7 @@ public class CFNCSVConverterTests
         var csv = await reader.ReadToEndAsync();
 
         Assert.AreEqual(
-            "0:00:00:10.5000000!0.1593Ah!10.5000V\r\n0:00:00:10.5100000!0.1412Ah!10.5100V\r\n",
+            $"Time!AccumulatedCapacity!VBusVoltage{Environment.NewLine}0:00:00:10.5000000!0.1593Ah!10.5000V{Environment.NewLine}0:00:00:10.5100000!0.1412Ah!10.5100V{Environment.NewLine}",
             csv
         );
     }

@@ -62,6 +62,7 @@ The `CFNCSVConverter` class constructor accepts the following (optional) paramet
 - `encoding`: The encoding to use when writing the CSV file (default `UTF8`).
 - `timeFormat`: The format to use when formatting the time values (default `G`).
 - `valueFormat`: The format to use when formatting the values (default `N4`).
+- `includeHeader`: Wether to include the header row in the CSV.
 - `includeTime`: Wether to include the time column (always first column).
 - `includeUnit`: Wether to include the unit of the value(s) like `A` (amps) or `V` (volts) for example.
 - `limitDataPoints`: The maximum number of data points to include in the CSV (default `int.MaxValue`)
