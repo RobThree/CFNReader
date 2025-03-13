@@ -40,9 +40,9 @@ public class CFNReaderTests
 
         Assert.AreEqual(6768, datapoints.Length);
 
-        Assert.AreEqual(228995.28, datapoints.Select(d => d.Values[Channel.VBusVoltage].Value).Sum());
-        Assert.AreEqual(34353.95317999959, datapoints.Select(d => d.Values[Channel.VBusCurrent].Value).Sum());
-        Assert.AreEqual(842.6989099999994, datapoints.Select(d => d.Values[Channel.AccumulatedCapacity].Value).Sum());
-        Assert.AreEqual(8.23502898181939, datapoints.Select(d => d.Values[Channel.AccumulatedEnergy].Value).Sum());
+        Assert.AreEqual(34353.95317999959, datapoints.Select(d => d.Values[Channel.VBusVoltage].Value).Sum());
+        Assert.AreEqual(842.6989099999994, datapoints.Select(d => d.Values[Channel.VBusCurrent].Value).Sum());
+        Assert.AreEqual(8.23502898181939, datapoints.Select(d => d.Values[Channel.AccumulatedCapacity].Value).Sum());
+        Assert.AreEqual(10.420652995065225, datapoints.Select(d => d.Values[Channel.AccumulatedEnergy].Value).Sum());
     }
 }

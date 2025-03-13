@@ -32,7 +32,7 @@ public class CFNStreamReader(Stream stream)
             {
                 Max = UnitValue.FromChannel(c.channel.ChannelRangeRecord.Max, c.channel.ChannelRecord.Channel),
                 Min = UnitValue.FromChannel(c.channel.ChannelRangeRecord.Min, c.channel.ChannelRecord.Channel),
-                Index = c.index
+                Index = c.index + 1
             })),
             Datapoints = await ReadDatapointsAsync(cancellationToken)
         };
