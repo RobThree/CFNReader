@@ -32,7 +32,7 @@ public class CFNStreamReader(Stream stream)
             {
                 Max = UnitValue.FromChannel(c.channel.ChannelRangeRecord.Max, c.channel.ChannelRecord.Channel),
                 Min = UnitValue.FromChannel(c.channel.ChannelRangeRecord.Min, c.channel.ChannelRecord.Channel),
-                Index = c.index + 1
+                Index = c.index
             })),
             Datapoints = await ReadDatapointsAsync(cancellationToken)
         };
@@ -54,7 +54,7 @@ public class CFNStreamReader(Stream stream)
             yield return new Datapoint
             {
                 Time = TimeSpan.FromSeconds(data[0]),
-                Values = new ValueCollection(fileInfo.Channels.ToDictionary(c => c.Key, c => UnitValue.FromChannel(data[c.Value.Index], c.Key)))
+                Values = new ValueCollection(fileInfo.Channels.ToDictionary(c => c.Key, c => UnitValue.FromChannel(data[c.Value.Index + 1], c.Key)))
             };
         }
     }
