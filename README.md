@@ -4,6 +4,8 @@
 
 Provides a simple way to read FNIRSI's CFN files (`*.cfn`) produced by the FNIRSI UsbMeter tool ([here](https://www.fnirsi.com/pages/download-firmware)). With this library you can also convert `*.cfn` files to CSV files easily. Available as [NuGet package](https://www.nuget.org/packages/CFNReader).
 
+![Build Status](https://img.shields.io/github/actions/workflow/status/RobThree/CFNReader/test.yml?branch=master&style=flat-square) [![Nuget version](https://img.shields.io/nuget/v/CFNReader.svg?style=flat-square)](https://www.nuget.org/packages/CFNReader/)
+
 # QuickStart
 
 ```c#
