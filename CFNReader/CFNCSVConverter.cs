@@ -15,6 +15,9 @@ public class CFNCSVConverter(IOptions<CFNCSVConverterOptions> options)
     public CFNCSVConverter(CFNCSVConverterOptions options)
         : this(Options.Create(options)) { }
 
+    public CFNCSVConverter()
+        : this(Options.Create(CFNCSVConverterOptions.Default)) { }
+
     public async Task ConvertToCSVAsync(Stream cnfStream, Stream csvStream, CancellationToken cancellationToken = default)
     {
         var cfnreader = new CFNStreamReader(cnfStream);
