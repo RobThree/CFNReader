@@ -7,13 +7,14 @@ public class CFNCSVConverterTests
     public async Task CFNCSVConverter_Converts_Correctly()
     {
         var fromtime = TimeSpan.FromSeconds(10.5);
-        var csvconverter = new CFNCSVConverter(
-            channels: [Channel.AccumulatedCapacity, Channel.VBusVoltage],
-            predicate: (dp) => dp.Time >= fromtime,
-            separator: "!",
-            includeUnit: true,
-            limitDataPoints: 2
-        );
+        var csvconverter = new CFNCSVConverter(new CFNCSVConverterOptions()
+        {
+            Channels = [Channel.AccumulatedCapacity, Channel.VBusVoltage],
+            Predicate = (dp) => dp.Time >= fromtime,
+            Separator = "!",
+            IncludeUnit = true,
+            LimitDataPoints = 2
+        });
 
         using var testfile = File.OpenRead("Testfiles/test.cfn");
         using var csvfile = new MemoryStream();

@@ -65,7 +65,7 @@ public class CFNStreamReader(Stream stream)
         var bytesread = await stream.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
         return bytesread != buffer.Length
             ? throw new MalformedRecordException(typeof(UnitValue[]), stream.Position, buffer.Length, bytesread)
-            : Enumerable.Range(0, count).Select(i => BitConverter.ToDouble(buffer, i * _doublesize)).ToArray();
+            : [.. Enumerable.Range(0, count).Select(i => BitConverter.ToDouble(buffer, i * _doublesize))];
     }
 
     private Task<HeaderRecord> ReadHeaderAsync(CancellationToken cancellationToken = default)
