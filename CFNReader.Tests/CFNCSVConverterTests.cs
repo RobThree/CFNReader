@@ -10,7 +10,7 @@ public class CFNCSVConverterTests
         var csvconverter = new CFNCSVConverter(new CFNCSVConverterOptions()
         {
             Channels = [Channel.AccumulatedCapacity, Channel.VBusVoltage],
-            Predicate = (dp) => dp.Time >= fromtime,
+            Predicate = dp => dp.Time >= fromtime,
             Separator = "!",
             IncludeUnit = true,
             LimitDataPoints = 2
